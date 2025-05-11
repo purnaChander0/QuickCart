@@ -1,7 +1,7 @@
 import { Inngest } from "inngest";
 import connectDB from "./db";
 import User from "@/models/user";
-import { clerkClient } from "@clerk/nextjs/dist/types/server";
+import { clerkClient } from "@clerk/nextjs/server";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "quickcart-next" });
@@ -19,6 +19,7 @@ const userData = {_id : id,
      name: first_name +" " +last_name ,
       imageUrl : image_url}
       await connectDB()
+      
          await User.create(userData)
 
  }
